@@ -40,13 +40,12 @@ public class VueloController {
                                          @RequestParam(required = false) String lugarLlegada,
                                          @RequestParam(required = false) @DateTimeFormat(iso = DateTimeFormat.ISO.DATE) LocalDate fechaSalida,
                                          @RequestParam(required = false) @DateTimeFormat(iso = DateTimeFormat.ISO.DATE) LocalDate fechaLlegada){
-        service.update(id,nombreVuelo,empresa,lugarSalida,lugarLlegada,fechaSalida,fechaLlegada);
-        return ResponseEntity.ok("El vuelo se ha actualizado correctamente.");
+        return ResponseEntity.ok(service.update(id,nombreVuelo,empresa,lugarSalida,lugarLlegada,fechaSalida,fechaLlegada));
     }
     @DeleteMapping("/{id}")
     public ResponseEntity<String> delete(@PathVariable Long id){
-        service.delete(id);
-        return ResponseEntity.ok("El vuelo se ha eliminado correctamente.");
+
+        return ResponseEntity.ok(service.delete(id));
     }
 
 }

@@ -1,6 +1,5 @@
 package com.example.pruebaTecnica.repository;
 
-import com.example.pruebaTecnica.dto.VueloDto;
 import com.example.pruebaTecnica.model.Vuelo;
 import org.springframework.stereotype.Repository;
 

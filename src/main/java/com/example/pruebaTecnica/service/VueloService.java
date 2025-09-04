@@ -37,20 +37,37 @@ public class VueloService {
         repository.save(vuelo);
         return "El vuelo se ha creado correctamente.";
     }
-    public void update(Long id, String nombreVuelo, String empresa, String lugarSalida, String lugarLlegada, LocalDate fechaSalida, LocalDate fechaLlegada) {
+    public String update(Long id, String nombreVuelo, String empresa, String lugarSalida, String lugarLlegada, LocalDate fechaSalida, LocalDate fechaLlegada){
         Vuelo vuelo = repository.findById(id)
                 .orElseThrow(() -> new RuntimeException("Vuelo no encontrado"));
         if (nombreVuelo != null) vuelo.setNombreVuelo(nombreVuelo);
         if (empresa != null) vuelo.setEmpresa(empresa);
         if (lugarSalida != null) vuelo.setLugarSalida(lugarSalida);
         if (lugarLlegada != null) vuelo.setLugarLlegada(lugarLlegada);
-        if (fechaSalida != null) vuelo.setFechaSalida(fechaSalida);
-        if (fechaLlegada != null) vuelo.setFechaLlegada(fechaLlegada);
+        if (fechaSalida != null && fechaLlegada != null) {
+            if (fechaUtils.isFechasRigth(fechaSalida,fechaLlegada)){
+                vuelo.setFechaSalida(fechaSalida);
+                vuelo.setFechaLlegada(fechaLlegada);
+            }else {
+                return "Las fechas no son correctas";
+            }
+        }else {
+            if (fechaSalida != null && fechaUtils.isFechasRigth(fechaSalida,vuelo.getFechaLlegada())){
+                vuelo.setFechaSalida(fechaSalida);
+            } else if (fechaLlegada != null && fechaUtils.isFechasRigth(vuelo.getFechaSalida(),fechaLlegada)) {
+                vuelo.setFechaLlegada(fechaLlegada);
+            } else {
+                return "Las fechas no son correctas";
+            }
+        }
+
 
         repository.update(vuelo);
+        return "El vuelo se ha actualizado correctamente.";
     }
-    public void delete(Long id) {
+    public String delete(Long id) {
         repository.delete(id);
+        return "El vuelo se ha eliminado correctamente.";
     }
     public List<VueloDto>getFiltered(String empresa,String lugarLlegada,LocalDate fechaSalida){
         return repository.getVuelos().stream()
