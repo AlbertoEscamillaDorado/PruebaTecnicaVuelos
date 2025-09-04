@@ -1,0 +1,191 @@
+{
+	"info": {
+		"_postman_id": "1ff80c57-4f01-4ce7-b892-72066ec7f0cf",
+		"name": "Prueba tecnica",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "33041993"
+	},
+	"item": [
+		{
+			"name": "getAll",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/vuelos",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"vuelos"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getById",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/vuelos/2",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"vuelos",
+						"2"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "create",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n        \"nombreVuelo\": \"S777-H\",\r\n        \"empresa\": \"Singapore Airlines\",\r\n        \"lugarSalida\": \"Singapore\",\r\n        \"lugarLlegada\": \"San Francisco\",\r\n        \"fechaSalida\": \"2025-12-24\",\r\n        \"fechaLlegada\": \"2025-12-25\"\r\n    }",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/vuelos",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"vuelos"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "update",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/vuelos/?id=2&empresa=Air Europa&lugarLlegada=Hong Kong",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"vuelos",
+						""
+					],
+					"query": [
+						{
+							"key": "id",
+							"value": "2"
+						},
+						{
+							"key": "nombreVuelo",
+							"value": null,
+							"disabled": true
+						},
+						{
+							"key": "empresa",
+							"value": "Air Europa"
+						},
+						{
+							"key": "lugarSalida",
+							"value": null,
+							"disabled": true
+						},
+						{
+							"key": "lugarLlegada",
+							"value": "Hong Kong"
+						},
+						{
+							"key": "fechaSalida",
+							"value": null,
+							"disabled": true
+						},
+						{
+							"key": "fechaLlegada",
+							"value": null,
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "delete",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n        \"nombreVuelo\": \"S777-H\",\r\n        \"empresa\": \"Singapore Airlines\",\r\n        \"lugarSalida\": \"Singapore\",\r\n        \"lugarLlegada\": \"San Francisco\",\r\n        \"fechaSalida\": \"2025-12-24\",\r\n        \"fechaLlegada\": \"2025-12-25\"\r\n}"
+				},
+				"url": {
+					"raw": "http://localhost:8080/vuelos/11",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"vuelos",
+						"11"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getFiltered",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/vuelos",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"vuelos"
+					],
+					"query": [
+						{
+							"key": "empresa",
+							"value": "Air France",
+							"disabled": true
+						},
+						{
+							"key": "lugarLlegada",
+							"value": "Tokyo",
+							"disabled": true
+						},
+						{
+							"key": "fechaSalida",
+							"value": "2025-03-10",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
