@@ -78,16 +78,24 @@
 			"request": {
 				"method": "PUT",
 				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
 				"url": {
-					"raw": "http://localhost:8080/vuelos/?id=2&empresa=Air Europa&lugarLlegada=Hong Kong",
+					"raw": "http://localhost:8080/vuelos?id=2",
 					"protocol": "http",
 					"host": [
 						"localhost"
 					],
 					"port": "8080",
 					"path": [
-						"vuelos",
-						""
+						"vuelos"
 					],
 					"query": [
 						{
@@ -96,30 +104,32 @@
 						},
 						{
 							"key": "nombreVuelo",
-							"value": null,
+							"value": "",
 							"disabled": true
 						},
 						{
 							"key": "empresa",
-							"value": "Air Europa"
+							"value": "Air Europa",
+							"disabled": true
 						},
 						{
 							"key": "lugarSalida",
-							"value": null,
+							"value": "",
 							"disabled": true
 						},
 						{
 							"key": "lugarLlegada",
-							"value": "Hong Kong"
+							"value": "Hong Kong",
+							"disabled": true
 						},
 						{
 							"key": "fechaSalida",
-							"value": null,
+							"value": "",
 							"disabled": true
 						},
 						{
 							"key": "fechaLlegada",
-							"value": null,
+							"value": "",
 							"disabled": true
 						}
 					]
